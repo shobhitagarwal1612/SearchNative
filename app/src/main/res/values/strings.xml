@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SearchNative</string>
+    <string name="result">%s  Time taken: %dms</string>
 </resources>

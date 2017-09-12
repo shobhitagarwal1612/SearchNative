@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private RadioGroup type;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String stringToSearch = "some1";
 
         String text = "";
+        long time = System.currentTimeMillis();
         switch (type.getCheckedRadioButtonId()) {
             case R.id.typeJava:
                 text = searchLib.stringFromJava(textString, stringToSearch);
@@ -42,7 +45,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 text = searchLib.stringFromJNI(textString, stringToSearch);
                 break;
         }
+        time = System.currentTimeMillis() - time;
 
-        textView.setText(text);
+        textView.setText(String.format(Locale.getDefault(), getString(R.string.result), text, time));
     }
 }
