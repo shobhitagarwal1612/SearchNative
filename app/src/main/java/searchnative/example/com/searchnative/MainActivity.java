@@ -3,6 +3,7 @@ package searchnative.example.com.searchnative;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,12 +11,15 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String text = "Sample sentence containing some words";
-
+    private static final String TAG = "MainActivity";
     private RadioGroup type;
     private TextView result;
     private EditText search;
@@ -36,7 +40,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button.setOnClickListener(this);
 
         searchLib = new SearchLib();
-        textString.setText(text);
+        try {
+            textString.setText(loadDataFromFile());
+        } catch (IOException e) {
+            Toast.makeText(this, "Error while loading data from file!", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+        }
+    }
+
+    private String loadDataFromFile() throws IOException {
+        Log.d(TAG, "Loading lorem ipsum...");
+
+        InputStream inputStream = getResources().openRawResource(R.raw.text);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+
+        String line;
+        StringBuilder aBuffer = new StringBuilder();
+        try {
+            while ((line = reader.readLine()) != null) {
+                aBuffer.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            reader.close();
+        }
+        Log.d(TAG, "Lorem ipsum loaded successfully");
+
+        return aBuffer.toString();
     }
 
     @Override
