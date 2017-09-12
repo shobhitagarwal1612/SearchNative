@@ -60,7 +60,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="@string/search_query"
-        android:text="88799"
+        android:text="@string/search_value"
         android:inputType="textPersonName" />
 
     <EditText
