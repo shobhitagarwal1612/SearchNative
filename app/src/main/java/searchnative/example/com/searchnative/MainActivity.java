@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private String loadDataFromFile() throws IOException {
-        Log.d(TAG, "Loading lorem ipsum...");
+        Log.d(TAG, "Loading data from file...");
 
         InputStream inputStream = getResources().openRawResource(R.raw.text);
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } finally {
             reader.close();
         }
-        Log.d(TAG, "Lorem ipsum loaded successfully");
+        Log.d(TAG, "Data loaded successfully");
 
         return aBuffer.toString();
     }
