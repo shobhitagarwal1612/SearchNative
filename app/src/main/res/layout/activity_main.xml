@@ -8,7 +8,7 @@
     android:padding="20dp">
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -35,14 +35,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Java" />
+                android:text="@string/using_java" />
 
             <RadioButton
                 android:id="@+id/typeJNI"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="JNI" />
+                android:text="@string/using_jni" />
         </RadioGroup>
 
         <Button
@@ -51,6 +51,21 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="Button" />
+            android:text="@string/search" />
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/search_query"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/textString"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ems="10"
+        android:inputType="textMultiLine" />
 </LinearLayout>
