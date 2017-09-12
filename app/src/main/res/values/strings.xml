@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SearchNative</string>
-    <string name="result">%s  Time taken: %dms</string>
+    <string name="result">%s\nTime taken: %dms</string>
     <string name="search_query">Search query</string>
     <string name="search">Search</string>
     <string name="using_java">Java</string>
