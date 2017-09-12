@@ -3,6 +3,6 @@
     <string name="result">%s  Time taken: %dms</string>
     <string name="search_query">Search query</string>
     <string name="search">Search</string>
-    <string name="using_java">Using Java</string>
-    <string name="using_jni">Using JNI</string>
+    <string name="using_java">Java</string>
+    <string name="using_jni">JNI</string>
 </resources>
