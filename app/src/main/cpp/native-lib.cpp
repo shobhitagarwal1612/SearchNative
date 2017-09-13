@@ -6,21 +6,15 @@ namespace searchnative_example_com_searchnative {
     jstring stringFromJNI(JNIEnv *env, jobject obj,
                           jstring textString, jstring stringToSearch) {
         char *tmp;
-        bool wordSearch;
 
         char *nativeTextString = (char *) env->GetStringUTFChars(textString, JNI_FALSE);
         char *nativeSearchText = (char *) env->GetStringUTFChars(stringToSearch, JNI_FALSE);
 
         tmp = strstr(nativeTextString, nativeSearchText);
 
-        wordSearch = tmp != NULL;
+        std::string result = "Hello from C++\n";
 
-        std::string result = "Hello from C++";
-        if (wordSearch) {
-            result += "\nWord found";
-        } else {
-            result += "\nWord not found";
-        }
+        result += tmp != NULL ? "Word found" : "Word not found";
 
         return env->NewStringUTF(result.c_str());
     }

@@ -19,11 +19,7 @@ public class SearchLib {
         Pattern pattern = Pattern.compile(stringToSearch);
         Matcher matcher = pattern.matcher(textString);
 
-        if (matcher.find()) {
-            stringBuilder.append("\nWord found");
-        } else {
-            stringBuilder.append("\nWord not found");
-        }
+        stringBuilder.append(matcher.find() ? "\nWord found" : "\nWord not found");
 
         return stringBuilder.toString();
     }
